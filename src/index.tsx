@@ -7,6 +7,6 @@ import { Main } from "./components/main";
 import { ReactState } from "react-state-rxjs";
 import { initialState } from './initial-state';
 
-ReactState.init((state: any, routerHistory: History) => {
+ReactState.init((routerHistory: History) => {
     ReactDOM.render(<Main history={routerHistory} />, document.getElementById("example"))
 }, initialState)

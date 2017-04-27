@@ -18,7 +18,7 @@
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-router-dom": "^4.1.1",
-    "react-state-rxjs": "^1.0.5",
+    "react-state-rxjs": "^1.1.7",
     "rxjs": "^5.3.0"
   },
   "devDependencies": {
