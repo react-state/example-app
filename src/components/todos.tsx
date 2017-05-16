@@ -1,17 +1,14 @@
 import * as React from "react";
 
-import { ComponentState, IComponentStateActions } from "react-state-rxjs";
+import { ComponentState, ReactComponentWithStateActions } from "react-state-rxjs";
 import { TodoDescription } from "./description";
 import { TodoModel } from "./actions/todo.model";
 import { TodosStateActions } from "./actions/todos.actions";
 
 @ComponentState(TodosStateActions)
-export class Todos extends React.Component<any, any> implements IComponentStateActions<TodosStateActions> {
+export class Todos extends ReactComponentWithStateActions<any, any, TodosStateActions> {
     description: HTMLInputElement;
     name: HTMLInputElement;
-
-    actions: TodosStateActions;
-    statePath: any;
 
     render() {
 

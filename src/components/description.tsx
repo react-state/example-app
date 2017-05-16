@@ -1,13 +1,10 @@
 import * as React from "react";
-
-import { ComponentState, IComponentStateActions } from "react-state-rxjs";
+import { ComponentState, HasStateActions, ReactComponentWithStateActions } from "react-state-rxjs";
 import { TodoStateActions } from "./actions/todo.actions";
+import { Test } from './test'
 
 @ComponentState(TodoStateActions)
-export class TodoDescription extends React.Component<any, any> implements IComponentStateActions<TodoStateActions> {
-    actions: TodoStateActions;
-    statePath: any;
-
+export class TodoDescription extends ReactComponentWithStateActions<any, any, TodoStateActions> {
     render(){
         return <div>{ this.actions.todoDescriptionAsync }</div>
     }
