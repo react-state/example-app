@@ -7,3 +7,5 @@ import 'rxjs';
 import 'immutable';
 import 'immutable-cursor';
 import 'react-state-rxjs';
+
+import 'bootstrap/dist/css/bootstrap.css';

@@ -11,7 +11,6 @@ export class Todos extends ReactComponentWithStateActions<any, any, TodosStateAc
     name: HTMLInputElement;
 
     render() {
-
         const todoItems = this.actions.todosAsync.map((item, index) => {
             return (<tr key={item.toString() + index + 1}>
                 <th scope="row">{index + 1}</th>
@@ -31,7 +30,7 @@ export class Todos extends ReactComponentWithStateActions<any, any, TodosStateAc
                     <label className="sr-only" htmlFor="inlineFormInputGroup">Username</label>
                     <input type="text" name="description" ref={input => this.description = input} className="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="Description" />
 
-                    <button type="button" className="btn btn-primary" onClick={this.addItem.bind(this)}>Submit</button>
+                    <button type="button" className="btn btn-primary" onClick={() => this.addItem()}>Submit</button>
                 </form>
                 <br />
                 <table className="table">
@@ -54,7 +53,7 @@ export class Todos extends ReactComponentWithStateActions<any, any, TodosStateAc
         this.actions.deleteTodo(index);
     }
 
-    addItem(e: Event) {
+    addItem() {
         this.actions.addTodo({ name: this.name.value, description: this.description.value } as TodoModel);
         this.name.value = '';
         this.description.value = '';

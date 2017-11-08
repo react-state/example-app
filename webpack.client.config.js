@@ -4,7 +4,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
+
 module.exports = {
+    devtool: 'eval',
     entry: {
         'app': root('src/index.tsx'),
         'vendors': root('/src/vendors.ts')
@@ -16,16 +18,13 @@ module.exports = {
         path: root('dist'),
     },
 
-    devtool: "source-map",
-
     resolve: {
         extensions: [".ts", ".tsx", ".js", ".json"]
     },
 
     module: {
         loaders: [
-            { test: /\.tsx?$/, loader: "awesome-typescript-loader" },
-            { enforce: "pre", test: /\.js$/, loader: "source-map-loader" },
+            { test: /\.ts|.tsx$/, loader: 'ts-loader' },
             {
                 test: /\.css$/,
                 loader: ExtractTextPlugin.extract({
@@ -39,7 +38,12 @@ module.exports = {
     plugins: [
         new webpack.optimize.CommonsChunkPlugin({ name: ['app', 'vendors'] }),
         new HtmlWebpackPlugin({ template: './index.html', inject: 'body' }),
-        new ExtractTextPlugin("[name].[contenthash].css"),
+        new ExtractTextPlugin("assets/[name].[contenthash].css"),
+        new webpack.DefinePlugin({
+            "process.env": {
+                NODE_ENV: JSON.stringify("production")
+            }
+        }),
         new CopyWebpackPlugin([
             {
                 from: 'src/assets/images/',
@@ -48,22 +52,6 @@ module.exports = {
         ])
     ],
 
-    devServer: {
-        historyApiFallback: true,
-        stats: {
-            assets: true,
-            colors: true,
-            version: false,
-            hash: true,
-            timings: true,
-            chunks: false,
-            chunkModules: false,
-            chunkOrigins: false,
-            children: false,
-            cached: false,
-            reasons: false
-        },
-    },
 };
 
 function root(args) {
