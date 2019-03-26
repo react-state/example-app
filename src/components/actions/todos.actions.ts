@@ -1,14 +1,13 @@
-import * as Immutable from 'immutable';
+import { fromJS, List, Map } from 'immutable';
 import { HasStore, InjectStore } from "react-state-rxjs";
 import { TodoModel } from "./todo.model";
-import { Observable } from "rxjs";
 
 @InjectStore('todos')
-export class TodosStateActions extends HasStore<Immutable.List<any>> {
+export class TodosStateActions extends HasStore<List<any>> {
 
     addTodo(item: TodoModel) {
         this.store.update(state => {
-            state.push(Immutable.fromJS(item));
+            state.push(fromJS(item));
         })
     }
 
@@ -18,9 +17,9 @@ export class TodosStateActions extends HasStore<Immutable.List<any>> {
         }, false);
     }
 
-    get todosAsync(): Observable<any>  {
-        return this.store.map(state => {
+    get todosAsync(): List<Map<any, any>> {
+        return this.store.map((state) => {
             return state.toArray();
-        });
+        }) as any;
     }
 }

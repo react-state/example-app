@@ -1,7 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 
@@ -23,22 +23,37 @@ module.exports = {
     },
 
     module: {
-        loaders: [
+        rules: [
             { test: /\.ts|.tsx$/, loader: 'ts-loader' },
             {
                 test: /\.css$/,
-                loader: ExtractTextPlugin.extract({
-                    fallback: 'style-loader',
-                    use: 'css-loader'
-                })
-            },
+                use: [
+                    {
+                        loader: MiniCssExtractPlugin.loader
+                    },
+                    'css-loader'
+                ]
+            }
         ]
     },
 
+    optimization: {
+        splitChunks: {
+            cacheGroups: {
+                commons: {
+                    name: "common",
+                    chunks: "all",
+                    minChunks: 2,
+                    priority: 10,
+                    reuseExistingChunk: true
+                }
+            }
+        }
+    },
+
     plugins: [
-        new webpack.optimize.CommonsChunkPlugin({ name: ['app', 'vendors'] }),
         new HtmlWebpackPlugin({ template: './index.html', inject: 'body' }),
-        new ExtractTextPlugin("assets/[name].[contenthash].css"),
+        new MiniCssExtractPlugin({filename: "assets/[name].[contenthash].css"}),
         new webpack.DefinePlugin({
             "process.env": {
                 NODE_ENV: JSON.stringify("production")
