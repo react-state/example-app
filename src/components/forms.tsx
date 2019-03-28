@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Store, FormStateManager, CustomFormElement, CustomFormElementProps, ElementValueChangeEvent, FormElement, StateHistory } from "react-state-rxjs";
+import { Store, FormStateManager, CustomFormElement, CustomFormElementProps, ElementValueChangeEvent, FormElement, StateHistory, ShoulUpdateStateParams } from "react-state-rxjs";
 import { Subject } from "rxjs";
 import { takeUntil } from "rxjs/operators";
 
@@ -28,7 +28,7 @@ export class FormsComponent extends React.Component<any, any> {
     this.formStateManager = Store.store.select(['form']).form
       .bind(this.form.current)
       .addCustomFormElements([this.customFormElement.current])
-      .shouldUpdateState((form: HTMLFormElement, formElements: FormElement[], target: HTMLElement | CustomFormElement, state: any) => true)
+      .shouldUpdateState((params: ShoulUpdateStateParams) => true)
       .onChange(state => this.forceUpdate())
       .sync();
   }

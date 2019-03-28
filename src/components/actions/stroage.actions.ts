@@ -4,7 +4,7 @@ import { HasStore, InjectStore } from 'react-state-rxjs';
 @InjectStore(['storage'])
 export class StorageStateActions extends HasStore<Map<any, any>> {
     add() {
-        this.store.storage.save();
+        return this.store.storage.save();
     }
 
     remove() {

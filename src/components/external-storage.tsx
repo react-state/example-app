@@ -21,7 +21,10 @@ export class StorageComponent extends React.Component implements HasStateActions
     }
 
     add() {
-        this.actions.add();
+        this.actions.add().subscribe(state => {
+            console.log('2000ms delay save: ', state);
+        });
+
         this.saveOtherStateToSessionStorage();
     }
 
