@@ -16,7 +16,7 @@ export class Todos extends ReactComponentWithStateActions<any, any, TodosStateAc
                 <th scope="row">{index + 1}</th>
                 <td>{item.get('name')}</td>
                 <td><TodoDescription key={item.toString() + index + 1} statePath={this.statePath} stateIndex={index} /></td>
-                <td><button onClick={() => this.deleteItem(index)}>X</button></td>
+                <td><button className="btn btn-danger" onClick={() => this.deleteItem(index)}>X</button></td>
             </tr>)
         });
 

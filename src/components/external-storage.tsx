@@ -1,11 +1,11 @@
 import * as React from "react";
-import { PersistStateManager, ComponentState, Store } from "react-state-rxjs";
+import { PersistStateManager, ComponentState, Store, HasStateActions } from "react-state-rxjs";
 import { timer } from "rxjs";
 import { tap, map } from "rxjs/operators";
 import { StorageStateActions } from "./actions/stroage.actions";
 
 @ComponentState(StorageStateActions)
-export class StorageComponent extends React.Component {
+export class StorageComponent extends React.Component implements HasStateActions<StorageStateActions> {
 
     actions: StorageStateActions;
     statePath: any;
@@ -49,11 +49,11 @@ export class StorageComponent extends React.Component {
         return (
         <div>
             ItemToStore value: {this.actions.deeperItem}<br /><br />
-            <button onClick={this.add.bind(this)}>add</button>
-            <button onClick={this.remove.bind(this)}>remove</button>
-            <button onClick={this.clear.bind(this)}>clear</button>
-            <button onClick={this.load.bind(this)}>load</button>
-            <button onClick={this.change.bind(this)}>change</button>
+            <button className="btn btn-primary" style={{marginLeft: '5px'}} onClick={this.add.bind(this)}>add</button>
+            <button className="btn btn-primary" style={{marginLeft: '5px'}} onClick={this.remove.bind(this)}>remove</button>
+            <button className="btn btn-primary" style={{marginLeft: '5px'}} onClick={this.clear.bind(this)}>clear</button>
+            <button className="btn btn-primary" style={{marginLeft: '5px'}} onClick={this.load.bind(this)}>load</button>
+            <button className="btn btn-primary" style={{marginLeft: '5px'}} onClick={this.change.bind(this)}>change</button>
           </div>
           )
     }
