@@ -27,7 +27,7 @@
         "react-router": "^5.0.0",
         "react-router-dom": "^5.0.0",
         "rxjs": "6.3.2",
-        "react-state-rxjs": "^4.1.1",
+        "react-state-rxjs": "^4.2.1",
         "ts-node": "^3.3.0",
         "history": "^4.9.0",
         "immutable": "^3.8.1",
