@@ -44,7 +44,7 @@ export class FormsComponent extends React.Component<any, any> {
   }
 
   handleSubmit(event: React.FormEvent<HTMLFormElement>) {
-    console.log(StateHistory.CURRENT_STATE.toJS())
+    console.log(StateHistory.instance.currentState.toJS())
     event.preventDefault();
     event.stopPropagation();
   }

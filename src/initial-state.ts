@@ -17,6 +17,10 @@ let initialState = {
         group: {
             complexElement: 'complex element value'
         }
+    },
+    asyncDemo: {
+        checkbox: false,
+        disabled: true
     }
 };
 

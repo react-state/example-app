@@ -8,7 +8,7 @@ export class TodosStateActions extends HasStore<List<any>> {
     addTodo(item: TodoModel) {
         this.store.update(state => {
             state.push(fromJS(item));
-        })
+        }, false, { message: "Item Added" })
     }
 
     deleteTodo(index: number) {
