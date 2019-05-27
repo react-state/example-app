@@ -1,7 +1,7 @@
 import * as React from "react";
 import { AsyncDemoStateActions } from './actions/async-demo.actions';
 import { Subject } from "rxjs";
-import { ComponentState, ReactComponentWithStateActions, FormStateManager, Store } from "react-state-rxjs";
+import { ComponentState, ReactComponentWithStateActions, FormStateManager, Store } from '@react-state/store';
 
 @ComponentState(AsyncDemoStateActions)
 export class AsyncDemo extends ReactComponentWithStateActions<any, any, AsyncDemoStateActions> {

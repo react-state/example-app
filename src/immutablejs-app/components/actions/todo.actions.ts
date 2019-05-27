@@ -1,4 +1,4 @@
-import { HasStore, InjectStore } from "react-state-rxjs";
+import { HasStore, InjectStore } from '@react-state/store';
 import { Map } from 'immutable';
 
 @InjectStore(['${stateIndex}'])

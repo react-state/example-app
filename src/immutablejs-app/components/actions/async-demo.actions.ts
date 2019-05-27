@@ -1,5 +1,5 @@
 import { Map } from 'immutable';
-import { HasStore, InjectStore } from 'react-state-rxjs';
+import { HasStore, InjectStore } from '@react-state/store';
 import { takeUntil, tap, switchMap } from 'rxjs/operators';
 import { timer, interval, iif, of } from 'rxjs';
 

@@ -1,5 +1,5 @@
 import * as React from "react";
-import { PersistStateManager, ComponentState, Store, HasStateActions } from "react-state-rxjs";
+import { PersistStateManager, ComponentState, Store, HasStateActions } from '@react-state/store';
 import { timer } from "rxjs";
 import { tap, map } from "rxjs/operators";
 import { StorageStateActions } from "./actions/stroage.actions";

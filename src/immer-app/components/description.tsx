@@ -1,5 +1,5 @@
 import * as React from "react";
-import { ComponentState, ReactComponentWithStateActions } from "react-state-rxjs";
+import { ComponentState, ReactComponentWithStateActions } from '@react-state/store';
 import { TodoStateActions } from "./actions/todo.actions";
 
 @ComponentState(TodoStateActions)

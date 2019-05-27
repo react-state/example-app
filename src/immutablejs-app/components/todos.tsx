@@ -1,9 +1,9 @@
 import * as React from "react";
 
-import { ComponentState, ReactComponentWithStateActions } from "react-state-rxjs";
+import { ComponentState, ReactComponentWithStateActions } from '@react-state/store';
 import { TodoDescription } from "./description";
-import { TodoModel } from "./actions/todo.model";
 import { TodosStateActions } from "./actions/todos.actions";
+import { TodoModel } from "../../todo.model";
 
 @ComponentState(TodosStateActions)
 export class Todos extends ReactComponentWithStateActions<any, any, TodosStateActions> {

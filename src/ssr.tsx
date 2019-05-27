@@ -1,8 +1,8 @@
 import * as React from "react";
 import { renderToString } from 'react-dom/server';
-import { ReactState } from "react-state-rxjs";
+import { ReactState } from '@react-state/store';
 import { StaticRouter } from "react-router";
-import { Main } from "../src/components/main";
+import { Main } from "../src/immutablejs-app/components/main";
 import { initialState } from "../src/initial-state";
 
 export class Render {

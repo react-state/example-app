@@ -1,6 +1,8 @@
+import { TodoModel } from './todo.model';
+
 let initialState = {
-    todos: <any[]>[],
-    storage: {
+    todos: <TodoModel[]>[],
+    storage: <StorageState>{
         itemToStore: 'some value'
     },
     form: {
@@ -18,10 +20,19 @@ let initialState = {
             complexElement: 'complex element value'
         }
     },
-    asyncDemo: {
+    asyncDemo: <AsyncDemoState>{
         checkbox: false,
         disabled: true
     }
 };
 
 export { initialState };
+
+export interface AsyncDemoState {
+    checkbox: boolean;
+    disabled: boolean;
+}
+
+export interface StorageState {
+    itemToStore: string;
+}

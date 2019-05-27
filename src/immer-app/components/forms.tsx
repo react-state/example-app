@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Store, FormStateManager, CustomFormElement, CustomFormElementProps, ElementValueChangeEvent, FormElement, StateHistory, ShoulUpdateStateParams } from "react-state-rxjs";
+import { Store, FormStateManager, CustomFormElement, CustomFormElementProps, ElementValueChangeEvent, FormElement, StateHistory, ShoulUpdateStateParams } from '@react-state/store';
 import { Subject } from "rxjs";
 import { takeUntil } from "rxjs/operators";
 

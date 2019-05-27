@@ -1,5 +1,5 @@
 import { Map } from 'immutable';
-import { HasStore, InjectStore } from 'react-state-rxjs';
+import { HasStore, InjectStore } from '@react-state/store';
 
 @InjectStore(['storage'])
 export class StorageStateActions extends HasStore<Map<any, any>> {

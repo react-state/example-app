@@ -1,6 +1,6 @@
 import { fromJS, List, Map } from 'immutable';
-import { HasStore, InjectStore } from "react-state-rxjs";
-import { TodoModel } from "./todo.model";
+import { HasStore, InjectStore } from '@react-state/store';
+import { TodoModel } from '../../../todo.model';
 
 @InjectStore('todos')
 export class TodosStateActions extends HasStore<List<any>> {
@@ -8,13 +8,13 @@ export class TodosStateActions extends HasStore<List<any>> {
     addTodo(item: TodoModel) {
         this.store.update(state => {
             state.push(fromJS(item));
-        }, false, { message: "Item Added" })
+        }, { message: "Item Added" })
     }
 
     deleteTodo(index: number) {
         this.store.update(state => {
             state.delete(index);
-        }, false);
+        });
     }
 
     get todosAsync(): List<Map<any, any>> {
