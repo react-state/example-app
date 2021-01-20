@@ -24,7 +24,7 @@
         "core-js": "^2.4.1",
         "express": "^4.16.2",
         "history": "^4.9.0",
-        "immer": "^3.1.2",
+        "immer": "^8.0.1",
         "immutable": "^3.8.1",
         "immutable-cursor": "^2.0.1",
         "morgan": "^1.9.0",
